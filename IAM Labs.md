@@ -56,7 +56,7 @@ Overall, the lab shows centralised authentication controlling network access, pe
 
 **AAA users added:** The same AAA screen after the two lab accounts have been added to User Setup: user1 with password PASSuser1\! and user2 with password PASSuser2\!. These are the credentials the laptops will use. From now on, any device joining the wireless network must present one of these usernames and passwords, which the server checks centrally.
 
-<img width="938" height="688" alt="image" src="https://github.com/user-attachments/assets/9949ed21-d1ad-40cc-95ee-bba2a487bb18" />
+<img width="938" height="561" alt="image" src="https://github.com/user-attachments/assets/9949ed21-d1ad-40cc-95ee-bba2a487bb18" />
 
 
 ## **Step 2: Configure wireless authentication on HQ-Laptop-1**
@@ -68,7 +68,7 @@ Overall, the lab shows centralised authentication controlling network access, pe
 
 **HQ-Laptop-1 wireless settings:** The laptop's Config tab, Wireless0 interface. Port Status is On at 11 Mbps, with a MAC (Media Access Control) address of 00D0.D374.E26E. The SSID (Service Set Identifier) is set to HQ-INT and Authentication is WPA2, with User ID user1 and password PASSuser1 (the AAA account from Step 1\) and Encryption Type AES. Internet Protocol (IP) Configuration is set to DHCP. Note the IPv4 address still shows 169.254.226.110 with mask 255.255.0.0, which is a self-assigned APIPA (Automatic Private IP Addressing) address: at this instant the RADIUS login and DHCP had not yet completed, so no real address had been leased.
 
-<img width="936" height="938" alt="image" src="https://github.com/user-attachments/assets/041ecbc1-f5e0-4d01-a932-a2a647aa98bc" />
+<img width="936" height="561" alt="image" src="https://github.com/user-attachments/assets/041ecbc1-f5e0-4d01-a932-a2a647aa98bc" />
 
 
 ## **Step 3: Configure wireless authentication on HQ-Laptop-2**
@@ -80,7 +80,7 @@ Overall, the lab shows centralised authentication controlling network access, pe
 
 **HQ-Laptop-2 wireless settings:** HQ-Laptop-2's Wireless0 interface configured identically to Laptop-1 but with user2's credentials, SSID HQ-INT, WPA2 and AES, IP on DHCP. Repeating the exact steps with a different AAA account proves the server authenticates multiple users rather than a single hard-coded login.
 
-<img width="905" height="938" alt="image" src="https://github.com/user-attachments/assets/a450eda7-c137-48c3-a9e4-62001c23341f" />
+<img width="905" height="561" alt="image" src="https://github.com/user-attachments/assets/a450eda7-c137-48c3-a9e4-62001c23341f" />
 
 
 # **Part 2: Configure and use email services**
@@ -93,7 +93,7 @@ Overall, the lab shows centralised authentication controlling network access, pe
 
 **Mail server EMAIL service:** The Mail server, Services tab, EMAIL. The SMTP and POP3 services are enabled and the domain is set to mail.cyberhq.com (shown in the domain field with the Set button beside it). The account list already contains HQuser1, HQuser2 and BRuser1, and a further account, BRuser2 with password Cisco123+, is being typed in ready to add with the plus (+) button. The \+, \-, and Change Password controls manage the mailbox accounts. This makes the server the SMTP/POP3 host every client will rely on.
 
-<img width="938" height="644" alt="image" src="https://github.com/user-attachments/assets/4d02b587-41f4-44e3-bb43-e6c60405bbdd" />
+<img width="938" height="561" alt="image" src="https://github.com/user-attachments/assets/4d02b587-41f4-44e3-bb43-e6c60405bbdd" />
 
 
 ## **Step 2: Configure the email clients**
@@ -126,7 +126,7 @@ For each device the report first confirms a working IP address in the status bub
 
 **Net-Admin addressing:** The Net-Admin PC in the Wiring Closet, address 192.168.99.9/24. Its status bubble locates it physically in the rack area and confirms its address before configuration.
 
-<img width="938" height="666" alt="image" src="https://github.com/user-attachments/assets/2191607d-de5a-4817-bfb0-40f3f9f92675" />
+<img width="938" height="561" alt="image" src="https://github.com/user-attachments/assets/2191607d-de5a-4817-bfb0-40f3f9f92675" />
 
 **Net-Admin mail client:** Net-Admin's Configure Mail screen for Cisco, address HQuser2@mail.cyberhq.com, servers mail.cyberhq.com, logon HQuser2. This is the fourth and final mail client, and the machine used for the FTP work in Part 3\.
 
