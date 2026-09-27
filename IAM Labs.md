@@ -42,11 +42,12 @@ Overall, the lab shows centralised authentication controlling network access, pe
 
 **Logical topology:** The starting logical view shows two sites, Headquarters (the tall building) and HQ (the smaller building), joined by a single link. This is the whole network at a glance, before any device is opened. Almost all of the lab work happens inside the HQ site.
 
-![][image1]
+<img width="938" height="561" alt="image" src="https://github.com/user-attachments/assets/faa94eff-6ed9-48fe-9d51-eeafc6f287ae" />
 
 **Physical Mode floor plan:** Switching to Physical Mode reveals the real three-dimensional layout of the HQ office, with the Wiring Closet labelled. The servers used later (AAA-RADIUS, Mail, FTP) are all racked in this closet, so the report keeps returning here. The left Instructions panel lists the three objectives, and the completion meter reads 0%, marking the start of the lab.
 
-![][image2]
+<img width="938" height="527" alt="image" src="https://github.com/user-attachments/assets/f35c8cca-f6a2-4194-be41-fddcb7b20d67" />
+
 
 # **Part 1: Configure and use AAA authentication credentials**
 
@@ -54,31 +55,37 @@ Overall, the lab shows centralised authentication controlling network access, pe
 
 **AAA service, starting state:** The AAA-RADIUS server is open on the Services tab with AAA selected in the left menu. The RADIUS port is 1812\. The Network Configuration table already lists one client, WLC-1 at 192.168.99.250, server type Radius, with the shared key WLC-auth\! (this is the wireless controller that will forward login requests to the server). The User Setup table below holds one pre-existing account, 1stFLprn. The rack on the right confirms this is the AAA-RADIUS server in the Wiring Closet.
 
-![][image3]
+<img width="938" height="598" alt="image" src="https://github.com/user-attachments/assets/5b1e4747-4fc2-43f2-b656-0c5d6a668084" />
+
 
 **AAA users added:** The same AAA screen after the two lab accounts have been added to User Setup: user1 with password PASSuser1\! and user2 with password PASSuser2\!. These are the credentials the laptops will use. From now on, any device joining the wireless network must present one of these usernames and passwords, which the server checks centrally.
 
-![][image4]
+<img width="938" height="688" alt="image" src="https://github.com/user-attachments/assets/9949ed21-d1ad-40cc-95ee-bba2a487bb18" />
+
 
 ## **Step 2: Configure wireless authentication on HQ-Laptop-1**
 
 **HQ-Laptop-1 before configuration:** Hovering over HQ-Laptop-1 shows its status bubble. Wireless0 is up but every network field reads "not set": no IPv4 (Internet Protocol version 4\) address, no gateway, no DNS (Domain Name System). This is the blank state before the wireless interface is configured, and it confirms the laptop cannot yet reach anything.
 
-![][image5]
+<img width="938" height="431" alt="image" src="https://github.com/user-attachments/assets/534afc32-7345-471d-88cd-6160fd4dcdb8" />
+
 
 **HQ-Laptop-1 wireless settings:** The laptop's Config tab, Wireless0 interface. Port Status is On at 11 Mbps, with a MAC (Media Access Control) address of 00D0.D374.E26E. The SSID (Service Set Identifier) is set to HQ-INT and Authentication is WPA2, with User ID user1 and password PASSuser1 (the AAA account from Step 1\) and Encryption Type AES. Internet Protocol (IP) Configuration is set to DHCP. Note the IPv4 address still shows 169.254.226.110 with mask 255.255.0.0, which is a self-assigned APIPA (Automatic Private IP Addressing) address: at this instant the RADIUS login and DHCP had not yet completed, so no real address had been leased.
 
-![][image6]
+<img width="936" height="938" alt="image" src="https://github.com/user-attachments/assets/041ecbc1-f5e0-4d01-a932-a2a647aa98bc" />
+
 
 ## **Step 3: Configure wireless authentication on HQ-Laptop-2**
 
 **HQ-Laptop-2 before configuration:** HQ-Laptop-2's status bubble, again with Wireless0 up but all addressing "not set". The same blank starting point as the first laptop, ready to be configured with the second account.
 
-![][image7]
+<img width="938" height="513" alt="image" src="https://github.com/user-attachments/assets/1fa08588-ac83-4eaa-a5e5-fb1e38cc5b54" />
+
 
 **HQ-Laptop-2 wireless settings:** HQ-Laptop-2's Wireless0 interface configured identically to Laptop-1 but with user2's credentials, SSID HQ-INT, WPA2 and AES, IP on DHCP. Repeating the exact steps with a different AAA account proves the server authenticates multiple users rather than a single hard-coded login.
 
-![][image8]
+<img width="905" height="938" alt="image" src="https://github.com/user-attachments/assets/a450eda7-c137-48c3-a9e4-62001c23341f" />
+
 
 # **Part 2: Configure and use email services**
 
