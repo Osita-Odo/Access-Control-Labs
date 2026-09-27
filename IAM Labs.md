@@ -30,13 +30,9 @@ Overall, the lab shows centralised authentication controlling network access, pe
 
 * Centralising authentication on a RADIUS server means credentials are checked in one place, so accounts can be managed without touching each device.
 
-* A self-assigned 169.254.x.x address is a clear sign that authentication or DHCP (Dynamic Host Configuration Protocol) has not completed; a proper 192.168.x.x lease is the evidence that it succeeded.
-
 * Authentication and authorisation are separate: identical logins can behave differently because a user's permission set (for example RWNL rather than RWDNL) removes a specific right such as delete.
 
 * Testing a control by trying an action that should fail is stronger evidence than only showing the actions that succeed.
-
-* The order in which evidence is captured matters, since a screenshot taken before DHCP completes can look like a failure even when the configuration is correct.
 
 # **The lab network**
 
