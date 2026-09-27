@@ -1,0 +1,117 @@
+# Onboarding a User to Passwordless Sign-in with a Temporary Access Pass and Passkey
+
+**Microsoft Entra ID · Temporary Access Pass (TAP) and passkey registration · TerraCyb Consulting**
+
+## Project Summary
+
+This project demonstrates how to onboard a user to passwordless authentication in Microsoft Entra ID by issuing a Temporary Access Pass (TAP) and using it to register a passkey. Working as an administrator in the Microsoft Entra admin centre, a time-limited, one-time access code is generated for a user (Chucks Eze) so that he can sign in for the first time without a password. He then uses that code at the Microsoft security information portal to authenticate and set up a passkey as his ongoing sign-in method.
+
+The walkthrough covers the full lifecycle. On the administrator side, it locates the user and their authentication methods in the admin centre, adds a Temporary Access Pass with a set duration (one hour) and one-time use, and shares the generated code with the user. On the user side, it follows Chucks as he signs in with his user principal name (ending in the TerraCyb Consulting domain) and the provided code, selects a passkey option, verifies device ownership, names the passkey, and finally signs in with a device-specific passkey PIN. The result is a user who can sign in securely with a passkey rather than a password. If the session times out before setup is complete, a fresh code must be issued by the administrator.
+
+## Tools Used
+
+- Microsoft Entra ID (the identity and access management service, formerly Azure Active Directory).
+- Microsoft Entra admin centre, used to manage the user and add authentication methods.
+- Microsoft security information portal ([https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)), used by the end user to sign in and register a passkey.
+- Temporary Access Pass (TAP), a time-limited, one-time passcode for first sign-in.
+- Passkey (FIDO2) authentication as the ongoing passwordless sign-in method.
+- A web browser (Microsoft Edge and Google Chrome) and Google Password Manager for storing the passkey on the device.
+- Windows Security (Windows Hello) PIN and a mobile device screen lock for identity verification.
+
+---
+
+## Part 1 (Administrator): Generate a Temporary Access Pass
+
+**Open the user in the Entra admin centre:** Signed in as an administrator, go to Entra ID > Users > All users. Find the user, Chucks Eze, and click on the user's name rather than ticking the box beside it. This opens the user's own page.
+
+![Open the user in the Entra admin centre](images/01.png)
+
+**Open the user's authentication methods:** On Chucks Eze's page, select Authentication methods from the menu on the lower left.
+
+![Open the user's authentication methods](images/02.png)
+
+**Add an authentication method:** On the Authentication methods page, select Add authentication method from the top.
+
+![Add an authentication method](images/03.png)
+
+**Choose Temporary Access Pass:** In the Add authentication method panel that appears, choose Temporary Access Pass from the Choose method list.
+
+![Choose Temporary Access Pass](images/04.png)
+
+**Set the duration and create the pass:** Set the activation duration, one hour in this case. One-time use is already set to Yes. Then select Add.
+
+![Set the duration and create the pass](images/05.png)
+
+**Copy the generated pass:** A Temporary Access Pass is generated so that Chucks can sign in. The code is `DWDG$*cn` and the sign-in website is [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). This code is given to Chucks to sign in.
+
+![Copy the generated pass](images/06.png)
+
+---
+
+## Part 2 (User): Sign in with the Temporary Access Pass
+
+**Find the user principal name:** Chucks needs his user principal name, which ends with the TerraCyb Consulting domain. It can be copied from the Users list.
+
+![Find the user principal name](images/07.png)
+
+**Start the sign-in:** Going to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo), Chucks is prompted to sign in and enters his user principal name.
+
+![Start the sign-in](images/08.png)
+
+**Enter the Temporary Access Pass:** On the next page, Chucks enters the Temporary Access Pass provided by the administrator: `DWDG$*cn`.
+
+![Enter the Temporary Access Pass](images/09.png)
+
+**Skip saving the password and staying signed in:** After signing in, the browser may offer to save the login details, but this is not necessary. Chucks can also choose not to stay signed in.
+
+![Skip saving the password and staying signed in](images/10.png)
+
+---
+
+## Part 3 (User): Register a passkey
+
+**Add a sign-in method:** On the Security info page, Chucks can now set up a permanent sign-in method, since the provided code was for one-time use. Select Add sign-in method. Note: if the process ends because of a session time-out (the page left open for a long time without activity), the administrator must generate another code.
+
+![Add a sign-in method](images/11.png)
+
+**Choose the passkey option:** Two sign-in options are shown. The second option, Passkey, is selected here, because the Microsoft Authenticator app is not being used.
+
+![Choose the passkey option](images/12.png)
+
+**Continue past the prompt:** Follow the prompt to sign in faster with your face, fingerprint or PIN, and select Next.
+
+![Continue past the prompt](images/13.png)
+
+**Verify device ownership:** Verify that you are the owner of the device you are using to sign in. Here the passkey is saved to Google Password Manager, so Chucks confirms it is him.
+
+![Verify device ownership](images/14.png)
+
+**Enter the device screen lock:** Enter the screen lock for the selected device to access the encrypted data and confirm your identity.
+
+![Enter the device screen lock](images/15.png)
+
+**Name the passkey:** After verification, you are prompted to name the passkey to help identify it later, for example "Chucks work account".
+
+![Name the passkey](images/16.png)
+
+**Passkey created:** The passkey is now set and can be used by Chucks to sign in next time.
+
+![Passkey created](images/17.png)
+
+---
+
+## Part 4 (User): Sign in with the passkey
+
+**Choose passkey sign-in:** If Chucks signs out after setting up the passkey, he is prompted to sign in with his account details, [eze@terracybconsulting.onmicrosoft.com](mailto:eze@terracybconsulting.onmicrosoft.com). Instead of a password, he selects "Use your face, fingerprint, PIN or security key instead".
+
+![Choose passkey sign-in](images/18.png)
+
+**Enter the passkey PIN:** Chucks is then required to enter the passkey PIN for the specific device he is using, which completes the passwordless sign-in.
+
+![Enter the passkey PIN](images/19.png)
+
+---
+
+## Outcome
+
+The user is onboarded to passwordless sign-in. A one-time Temporary Access Pass allowed a secure first sign-in without a password, and from that session a passkey was registered as the ongoing method. Chucks can now sign in with a passkey protected by a device PIN, and the administrator retains control by issuing a new pass if setup does not complete in time.
